@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-go
+spec:
+  containers:
+  - name: my-go
+    image: "mdshoaib707/ma-image:latest"
+    ports:
+    - containerPort: 8080
+      hostPort: 8085
+    volumeMounts:
+    - mountPath: /go/src/MathApp
+      name: go-vol
+    workingDir: /go/src/MathApp
+  volumes:
+  - name: go-vol
+    hostPath:
+      path: /root/goapp/MathApp
+
